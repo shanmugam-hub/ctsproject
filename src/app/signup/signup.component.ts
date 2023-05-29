@@ -31,7 +31,7 @@ constructor(private formbuilder:FormBuilder,private router:Router,private logins
         data =>{console.log(data),
         this.alertMessage = 'SignUp Successful !!',
 
-        this.myform.reset
+        this.myform.reset;
   });
 }
       
