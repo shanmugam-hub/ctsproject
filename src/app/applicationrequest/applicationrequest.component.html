@@ -1,0 +1,163 @@
+<div class="container">
+    <div class="main-body">
+    
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            </ol>
+          </nav>
+          <!-- /Breadcrumb -->
+    
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.userName}}
+                    </div>
+                  </div>
+
+
+                  <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0"> Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.officialEmail}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0"> Designation</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.designation}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0"> Mobile</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.phoneNumber}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0"> Role</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.role}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0"> AadharNumber</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.aadharNumber}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0"> companyName</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.company.companyName}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0"> BuildingName</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.company.buildingName}}
+                    </div>
+                  </div>
+                  <hr>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0"> BuildingName</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.drivinglicense.licenseNo}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0"> ExpiationDate</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.drivinglicense.expirationDate}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0"> AllowedVehicles</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.drivinglicense.allowedVehicles}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0"> RTA</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.drivinglicense.rta}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <a class="btn btn-success " (click)="onSubmit('Accept')">Accept</a>
+                    </div>
+                    <div class="col-sm-6">
+                      <a class="btn btn-danger " (click)="onSubmit('Reject')">Reject</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- {{user.companyId.buildingName}} -->
+                <!-- <div>
+                    <div class="col">
+                        <a class="btn btn-danger " (click)="onSubmit('Accept')">Accept</a>
+                      </div>
+                    </div>
+
+                </div> -->
+
+      
+
+
+            </div>
+          </div>
+
+        </div>
+    </div>

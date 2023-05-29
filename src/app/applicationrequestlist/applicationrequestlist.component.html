@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h2>User List</h2>
+        </div>
+        <div class="panel-body">
+            <table datatable  id="datatable" class="table row-border hover" >
+            <thead>
+              <tr>
+                <th>id</th>
+                <th >Name</th>
+                <th >Email</th>
+                <th >
+                  Phone Number
+                </th>
+                <th>Role</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let emp of employees ">
+                <td>{{emp.userId}}</td>
+                <td>{{emp.userName}}</td>
+                <td>{{emp.officialEmail}}</td>
+                <td>{{emp .phoneNumber}}</td>
+                <td>{{emp.role}}</td>
+                
+                <td>
+                  <button class="btn btn-success offset-2" type="button" (click)="view(emp.userId)" > view</button>
+                </td>
+                  
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+    </div>
+    
+        
+        

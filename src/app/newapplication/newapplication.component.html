@@ -1,0 +1,130 @@
+<div class="container offset-3" >
+
+<div class="card col-9">
+<form  [formGroup]="myform" >
+
+    <div   class="form-group">
+        <label for="name">UserName</label>
+        <div class="col-5">
+  
+        <input type="text" class="form-control" id="userName" formControlName="userName" name="name" required>
+        <!-- <span class="text-danger" *ngIf=" myform.controls['userName'].touched && myform?.hasError('required','userName')">Username required</span> -->
+
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col-5">
+            Email:
+          <input type="text" class="form-control" placeholder="example@gmail.com" formControlName="officialEmail" name="officialEmail">
+        </div>
+        <div class="col-3">
+            Mobile number
+          <input type="number" class="form-control" formControlName="phoneNumber" name="phoneNumber">
+        </div>
+    </div>
+    <div   class="form-group">
+        <label for="name">Aadhar Number</label>
+        <div class="col-5">
+  
+        <input type="number" class="form-control" id="aadharNumber" formControlName="aadharNumber" name="aadharNumber" required>
+        <!-- <span class="text-danger" *ngIf=" myform.controls['userName'].touched && myform?.hasError('required','userName')">Username required</span> -->
+
+        </div>
+      </div>
+      <br>
+      <div   class="form-group">
+        <label for="name">Designation </label>
+        <div class="col-5">
+  
+        <input type="Text" class="form-control" id="designation" formControlName="designation" name="designation" required>
+        <!-- <span class="text-danger" *ngIf=" myform.controls['userName'].touched && myform?.hasError('required','userName')">Username required</span> -->
+
+        </div>
+      </div>
+        <!-- <div >                {{companyOptions |json}}
+    </div> -->
+    <div class="row">
+        <div class="form-group">
+            <label for="role">Company:</label>
+            <select type="number" formControlName="companyName" id="companyName">
+                <option disabled>Select your company</option>
+              <option *ngFor="let option of companyOptions" [value]="option.id">{{ option.companyName }}</option>
+            </select>
+          </div>
+      
+        <div class="form-group col">
+             Employee Id
+             <div class="col col-3">
+          <input type="number" class="form-control" formControlName="employeeId"  name="employeeId" required>
+        </div>
+        </div>
+    </div>
+    <br>
+
+  
+  
+      <div class="form-group">
+        <div class="row">
+          <label for="name">Role:</label>
+          <div class="col-5">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="role" name="role" id="motorist" value="Motorist">
+              <label class="form-check-label" for="motorist">
+                Motorist
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="role" name="role" id="rider" value="Rider">
+              <label class="form-check-label" for="rider">
+                Rider
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+<br>
+<div   class="form-group">
+    <label for="name">LicenseNo </label>
+    <div class="col-5">
+
+    <input type="number" class="form-control" id="licenseNo" formControlName="licenseNo" name="licenseNo" required>
+    <!-- <span class="text-danger" *ngIf=" myform.controls['userName'].touched && myform?.hasError('required','userName')">Username required</span> -->
+
+    </div>
+  </div>
+
+  <div   class="form-group">
+    <label for="name">expirationDate </label>
+    <div class="col-5">
+
+    <input type="date" class="form-control" id="expirationDate" formControlName="expirationDate" name="expirationDate" required>
+    <!-- <span class="text-danger" *ngIf=" myform.controls['userName'].touched && myform?.hasError('required','userName')">Username required</span> -->
+
+    </div>
+  </div>
+  <div   class="form-group">
+    <label for="name">RTA </label>
+    <div class="col-5">
+
+    <input type="Text" class="form-control" id="rTA" formControlName="rTA" name="rTA" required>
+    <!-- <span class="text-danger" *ngIf=" myform.controls['userName'].touched && myform?.hasError('required','userName')">Username required</span> -->
+
+    </div>
+  </div>
+    
+
+  
+    <!-- Checkbox -->
+    <div class="form-check d-flex justify-content-center mb-4">
+      <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
+      <label class="form-check-label" for="form6Example8"> Create an new application? </label>
+    </div>
+  
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4" (click)="toCreate()">Submit</button>
+  </form>
+</div>
+</div>
