@@ -8,12 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
-
+  
   myform!: FormGroup;
   constructor(private formBuilder:FormBuilder,private loginservice:LoginserviceService,private router:Router){
     this.myform = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required,Validators.maxLength(15)]]
+      email: ['', [Validators.required, Validators.email,Validators.minLength(5)]],
+      // password: ['', [Validators.required,Validators.maxLength(15)]]
 
       
     });
@@ -27,14 +27,20 @@ export class LoginComponent implements OnInit{
 
     //   this.loginservice.loginuser(this.myform).subscribe(
     //     (        data: any) => console.log(data),(error: any)=> console.log(error));
-        
-
-this.loginservice.loginuser(this.myform.value).subscribe(
-  (data:any)=> {console.log(data);
-    alert("login succes");
-    window.location.replace("/home");
-
+      let email:string=this.myform.value.email;
+    //  console.log(email);
+    this.loginservice.loginuser(email).subscribe(
+  (data)=> {
+    if(data.status==200){
+    console.log(data);
+    sessionStorage.setItem('isloggedin','true');
+    window.location.replace("/list");
   }
+
+  },(error:any)=>{
+    console.log(error);
+  }
+
     
   
 );

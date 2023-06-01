@@ -21,7 +21,7 @@ const routes: Routes = [
     path:"signup",component:SignupComponent
   },
   {
-    path:"list" ,component:ApplicationrequestlistComponent
+    path:"list" ,component:ApplicationrequestlistComponent,canActivate:[AuthenticationGuard]
   },{
       path:"user/:id",component:ApplicationrequestComponent
   },

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiResponse } from '../Model/apiresponse';
 import { Observable, catchError, throwError } from 'rxjs';
@@ -14,17 +14,11 @@ export class LoginserviceService {
   Url : string="http://localhost:9091/api";
   isLoggedIn :boolean=true;
 
-  unprotectedRouting(){
-    if(this.isLoggedIn){
-      this.router.navigate(['/expense/all']);
-    }
-  }
   private handleError(error:any){
     if(error.status==0){
-    alert('An error occurred: '+error.error);
+    alert('An error occurred: '+"Connection Refused");
   } else {
-    // The backend returned an unsuccessful response code.
-    // The response body may contain clues as to what went wrong.
+
     if(error.error.hasOwnProperty('message')){
       alert(error.error.message);
     }
@@ -33,9 +27,16 @@ export class LoginserviceService {
 
     
   }
-  loginuser(data:any):Observable<any>{
+  loginuser(email:String):Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
     
-     return this.http.post(this.Url+"/login",data).pipe(catchError(this.handleError));
+    const body = {  email };
+     console.log(body);
+    return this.http.post(`${this.Url}/login`,email ).pipe(catchError(this.handleError));;
+     
+  
   }
   signupuser(user:any){
    return this.http.post(this.Url+"/signup",user).pipe(catchError(this.handleError));
@@ -54,8 +55,9 @@ export class LoginserviceService {
     return this.http.get(this.Url+"/companies").pipe(catchError(this.handleError));
   }
   saveData(data:any){
-    return this.http.post(this.Url+"/applications/new",data).pipe(catchError(this.handleError));
+    return this.http.post(this.Url+"/applications/new",data);
   }
+  
   
 
 }

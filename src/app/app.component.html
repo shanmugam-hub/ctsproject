@@ -5,11 +5,11 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <a class="navbar-brand" href="#">Suntech Website</a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
+      <li class="nav-item active" *ngIf="!isloggedin">
         <a class="nav-link" href="/login">login </a>
       </li>
       <span></span>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isloggedin">
         <a class="nav-link" href="/list">List</a>
       </li>
       <li class="nav-item">

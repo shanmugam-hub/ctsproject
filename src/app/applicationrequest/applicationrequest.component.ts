@@ -53,11 +53,11 @@ onSubmit(data:string){
   this.service.approval(result).subscribe((res)=>{
     console.log(res);
     this.toastr.success(res);
-            this.router.navigate(['list']);
+      this.router.navigate(['list']);
 
   },(err:any)=>{
     console.log(err);
-    this.toastr.error("Server error");
+    this.toastr.error("You are not login");
     this.router.navigate(['list']);
 
   })
