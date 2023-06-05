@@ -2,7 +2,7 @@
 
 <div class="card col-9">
 <form  [formGroup]="myform" >
-
+    <!-- <span class="text-center text-danger"  *ngIf="!myform.valid && touched">window.alert("Fill the form correctly")</span> -->
     <div   class="form-group">
         <label for="name">UserName</label>
         <div class="col-5">
@@ -145,7 +145,17 @@
     <span class="text-danger" *ngIf=" myform.controls['rTA'].touched && myform?.hasError('required','rTA')">Enter your RTA</span>
 
     </div>
+  </div>  <div   class="form-group">
+    <label for="name">AllowedVehicles </label>
+    <div class="col-5">
+
+    <input type="Text" class="form-control" id="rTA" formControlName="allowedVehicles" name="allowedVehicles" required>
+    <span class="text-danger" *ngIf=" myform.controls['allowedVehicles'].touched && myform?.hasError('required','allowedVehicles')">Enter your vehicles allowed</span>
+
+    </div>
   </div>
+    
+
     
 
   

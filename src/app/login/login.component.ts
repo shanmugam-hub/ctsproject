@@ -32,14 +32,22 @@ export class LoginComponent implements OnInit{
     this.loginservice.loginuser(email).subscribe(
   (data)=> {
     if(data.status==200){
-    console.log(data);
-    sessionStorage.setItem('isloggedin','true');
+      alert(data.message);
+      sessionStorage.setItem('isloggedin','true');
     window.location.replace("/list");
+  }else {
+    alert(data.message);
   }
+},
+(error: any) => {
+  console.log(error);
+  if (error?.error?.body) {
+    alert('An error occurred: ' + error.error.message);
+  } else {
+    alert('An error occurred.');
+  }
+}
 
-  },(error:any)=>{
-    console.log(error);
-  }
 
     
   

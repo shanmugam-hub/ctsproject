@@ -4,7 +4,7 @@
           <!-- Breadcrumb -->
           <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a [routerLink]="['/list']">Home</a></li>
             </ol>
           </nav>
           <!-- /Breadcrumb -->
@@ -101,7 +101,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0"> BuildingName</h6>
+                      <h6 class="mb-0"> licenseNo</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                         {{user.drivinglicense.licenseNo}}

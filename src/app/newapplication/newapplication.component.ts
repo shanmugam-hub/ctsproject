@@ -13,6 +13,7 @@ import { futureDateValidator } from '../Model/Datecheck';
 })
 export class NewapplicationComponent implements OnInit {
   companyOptions: any[] = [];
+  touched:boolean=false;
 
   myform !: FormGroup;
   constructor(private formBuilder:FormBuilder,private toastr: ToastrService,private loginservice:LoginserviceService,private router:Router){
@@ -30,7 +31,8 @@ export class NewapplicationComponent implements OnInit {
 
       licenseNo: ['', [Validators.required,Validators.maxLength(10),Validators.minLength(10),  Validators.pattern(/^[A-Za-z]{3}\d{4}[A-Za-z]{3}$/)    ]],
       expirationDate: ['', [Validators.required,futureDateValidator]],
-      rTA: ['', [Validators.required,Validators.maxLength(20)]]
+      rTA: ['', [Validators.required,Validators.maxLength(20)]],
+      allowedVehicles:['',[Validators.required]]
       
     });
   }
@@ -43,14 +45,21 @@ export class NewapplicationComponent implements OnInit {
   (error:any) => {
     this.toastr.error("Error retrieving company options",error)
   }
+ 
 );
+
   }
   toCreate(){
     //console.log(this.myform.controls['expirationDate'].errors!==null);
+    if(!this.myform.valid){
+      alert("Fill the form correctly");
+    
+    }
     const data=this.myform.value;
+    this.touched=true;
     // const user:any={userName:data.userName,officialEmail:data.officialEmail,phoneNumber:data.phoneNumber,designation:data.designation,role:data.role,employeeId:data.employeeId,aadharNumber:data.aadharNumber,applicationStatus:"New",companyId:parseInt(data.companyId)};
      //console.log(user);
-    const drivinglicense={licenseNo:data.licenseNo,expirationDate:data.expirationDate,rTA:data.rTA,allowedVehicles:"bike"};
+    const drivinglicense={licenseNo:data.licenseNo,expirationDate:data.expirationDate,rTA:data.rTA,allowedVehicles:data.allowedVehicles};
     //console.log(drivinglicense);
     const userdetails={userName:data.userName,officialEmail:data.officialEmail,phoneNumber:data.phoneNumber,designation:data.designation,role:data.role,employeeId:data.employeeId,aadharNumber:data.aadharNumber,applicationStatus:"New",company:{id:parseInt(data.companyId)},drivinglicense:drivinglicense};
     console.log("userdertails",userdetails)
@@ -59,8 +68,10 @@ export class NewapplicationComponent implements OnInit {
       (data:any)=>{
         //console.log(data)
         if(data.status==200){
-      alert(data.body);
+      alert(data.message);
       this.myform.reset();
+    }else{
+    alert(data.message)
     }
     },
       (error:any)=>{console.log(error),
@@ -68,7 +79,9 @@ export class NewapplicationComponent implements OnInit {
     }
 
     );
+
   }
+
 }
    get userName(){return this.myform.get('userName');}
 

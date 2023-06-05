@@ -25,7 +25,7 @@ export class ApplicationrequestComponent {
 
   }
 //   onSubmit(data:string){
-//     // this.toastr.success('This is a success message', 'Success');
+    // this.toastr.success('This is a success message', 'Success');
 
 //     const result={userId:this.user.userId,applicationStatus:data};
 //     console.log(result);

@@ -55,7 +55,7 @@ export class LoginserviceService {
     return this.http.get(this.Url+"/companies").pipe(catchError(this.handleError));
   }
   saveData(data:any){
-    return this.http.post(this.Url+"/applications/new",data);
+    return this.http.post(this.Url+"/applications/new",data).pipe(catchError(this.handleError));
   }
   
   
