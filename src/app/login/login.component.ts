@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit{
   constructor(private formBuilder:FormBuilder,private loginservice:LoginserviceService,private router:Router){
     this.myform = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email,Validators.minLength(5)]],
-      // password: ['', [Validators.required,Validators.maxLength(15)]]
+      password: ['', [Validators.required,Validators.maxLength(15)]]
 
       
     });
@@ -27,9 +27,10 @@ export class LoginComponent implements OnInit{
 
     //   this.loginservice.loginuser(this.myform).subscribe(
     //     (        data: any) => console.log(data),(error: any)=> console.log(error));
-      let email:string=this.myform.value.email;
+      const email:string=this.myform.value.email;
+      const aadharnumber=this.myform.value.password
     //  console.log(email);
-    this.loginservice.loginuser(email).subscribe(
+    this.loginservice.loginuser(email,aadharnumber).subscribe(
   (data)=> {
     if(data.status==200){
       alert(data.message);

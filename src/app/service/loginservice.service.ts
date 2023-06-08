@@ -27,14 +27,14 @@ export class LoginserviceService {
 
     
   }
-  loginuser(email:String):Observable<any>{
+  loginuser(email:String,aadharnumber:String):Observable<any>{
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
     
-    const body = {  email };
+    const body = {  email ,aadharnumber};
      console.log(body);
-    return this.http.post(`${this.Url}/login`,email ).pipe(catchError(this.handleError));;
+    return this.http.post(`${this.Url}/login`,body ).pipe(catchError(this.handleError));;
      
   
   }

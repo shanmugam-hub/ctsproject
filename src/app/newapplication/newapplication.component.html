@@ -69,6 +69,7 @@
             <label for="role">Company:</label>
             <select type="number" formControlName="companyId" id="companyName">
                 <option disabled>Select your company</option>
+                   
               <option *ngFor="let option of companyOptions" [value]="option.id">{{ option.companyName }}</option>
             </select>
             <span class="text-danger" *ngIf=" myform.controls['companyId'].touched && myform?.hasError('required','companyId')">Please select your company</span>
